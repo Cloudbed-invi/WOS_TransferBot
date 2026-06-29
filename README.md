@@ -39,34 +39,11 @@ You only need three things to get started:
 
 Now that you have your prerequisites, setting up the bot is incredibly easy!
 
-1. Install Python 3.10+ and install the requirements:
-   ```bash
-   pip install -r requirements.txt
-   ```
-2. Run the interactive setup script:
-   ```bash
-   python setup.py
-   ```
-3. Follow the prompts on screen. You will be asked for:
-   - Your Discord Bot Token
-   - Your Discord User ID (so the bot can DM you sync logs)
-   - Your Google Sheet URL
-   - Your target state number
-   - A list of your state's alliances and their transfer limits
+1. Install Python 3.10+ from the Windows Store or Python.org.
+2. Double-click the **`1_Install_and_Setup.bat`** file in the folder.
+3. Follow the prompts on the black screen. It will ask for your Discord Token, Sheet URL, Target State, and Alliance Limits.
 
-The setup script will generate a `.env` file and a `config.json` file automatically.
-
----
-
-## 3. Formatting the Google Sheet
-
-Next, run the sheet setup tool. This will inject all the formulas, headers, dropdown validations, and color-coding rules into your blank Google Sheet!
-
-```bash
-python setup_sheet.py
-```
-
-Once this finishes, open your Google Sheet. You will see a beautiful dashboard on the right side!
+Once you answer the questions, the setup script will instantly configure your Blank Google Sheet with all the colors, dropdowns, and dashboards!
 
 ### How the Sheet Works
 - **ID**: Paste player IDs in column B. The bot will use these to fetch data.
@@ -77,14 +54,10 @@ Once this finishes, open your Google Sheet. You will see a beautiful dashboard o
 
 ---
 
-## 4. Running the Bot
+## 3. Running the Bot
 
-Finally, boot up the bot!
+To start the bot, just double-click **`2_Run_Bot.bat`**.
 
-```bash
-python bot.py
-```
-
-The bot is now online! In Discord, you can use the following commands:
-- `/sync_transfer_manager`: Forces an immediate data fetch from the game API to update all players.
-- `/sort_transfers`: Sorts the entire sheet. It groups players by Alliance first (using the order you specified during setup), then sorts them by highest Furnace Level, then highest Power!
+That's it! The bot is now online. In Discord, you can use:
+- `/sync_transfer_manager`: Forces an immediate fetch to update all players.
+- `/sort_transfers`: Sorts the entire sheet by Alliance -> Furnace -> Power.
