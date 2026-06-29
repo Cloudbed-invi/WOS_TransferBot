@@ -12,34 +12,26 @@ This bot connects to the official game API to fetch player data (Power, Furnace,
 
 ---
 
-## 1. Prerequisites
+## 1. Gather Your Keys (Takes 2 minutes)
 
-Before running the bot, you will need to gather 3 things:
-1. **A Discord Bot Token** (To run the bot)
-2. **A Google Service Account `credentials.json` file** (To access Google Sheets)
-3. **A blank Google Sheet URL** (Where the data will be stored)
+You only need three things to get started:
 
-### Getting a Discord Bot Token
-1. Go to the [Discord Developer Portal](https://discord.com/developers/applications).
-2. Click **New Application** and give it a name.
-3. Go to the **Bot** tab and click **Reset Token** to get your token. Copy it down.
-4. Under **Privileged Gateway Intents**, enable **Message Content Intent**.
-5. Go to **OAuth2 -> URL Generator**, select `bot` and `applications.commands`, and give it Administrator permissions. Copy the generated URL and paste it in your browser to invite the bot to your server.
+**1. A Discord Bot Token**
+* Go to the [Discord Developer Portal](https://discord.com/developers/applications) -> **New Application**.
+* Go to the **Bot** tab -> Click **Reset Token** to get your password.
+* *Important:* Scroll down and check the box for **Message Content Intent**.
 
-### Getting Google Sheets Credentials
-1. Go to the [Google Cloud Console](https://console.cloud.google.com/).
-2. Create a new Project.
-3. Go to **APIs & Services -> Enabled APIs & Services** and enable the **Google Sheets API**.
-4. Go to **IAM & Admin -> Service Accounts** and create a new Service Account.
-5. Click on the Service Account you just created, go to the **Keys** tab, click **Add Key -> Create new key**, and select **JSON**.
-6. A file will download. Rename this file to `credentials.json` and place it in the same folder as this bot.
+**2. A Google credentials.json file**
+* Go to [Google Cloud Console](https://console.cloud.google.com/) and create a project.
+* Search for **Google Sheets API** at the top and click **Enable**.
+* Go to **IAM & Admin -> Service Accounts** and create one.
+* Click on your new service account -> **Keys** tab -> **Add Key** -> **JSON**. 
+* Put the downloaded file in the bot's folder and name it `credentials.json`.
 
-### Creating the Google Sheet
-1. Go to Google Sheets and create a completely Blank spreadsheet.
-2. Click **Share** in the top right.
-3. Open your `credentials.json` file and find the `client_email` address.
-4. Add that email address as an **Editor** to your Google Sheet.
-5. Copy the URL of your Google Sheet.
+**3. A blank Google Sheet**
+* Create a blank Google Sheet.
+* Open `credentials.json`, copy the `client_email` address, and **Share** your Google Sheet with that email as an Editor.
+* Copy the link to your Google Sheet!
 
 ---
 
