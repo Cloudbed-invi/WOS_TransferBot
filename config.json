@@ -1,0 +1,25 @@
+{
+    "target_state": "3693",
+    "alliances": [
+        "WAR",
+        "EVL",
+        "RAW",
+        "HPL",
+        "OMG",
+        "ROY",
+        "ZED",
+        "KOR",
+        "SELF REQ"
+    ],
+    "limits": {
+        "WAR": "5",
+        "EVL": "5",
+        "RAW": "5",
+        "HPL": "4",
+        "OMG": "4",
+        "ROY": "4",
+        "ZED": "2",
+        "KOR": "2",
+        "SELF REQ": "-"
+    }
+}
