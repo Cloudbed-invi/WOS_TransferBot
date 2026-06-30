@@ -5,6 +5,8 @@ A standalone, open-source Discord bot designed to automate and manage State Tran
 This bot connects to the official game API to fetch player data (Power, Furnace, State, Alliance) and synchronizes it automatically with a Google Sheet Dashboard. 
 
 ## What the Bot Does
+*(Note: You can actually use the Google Sheet Template manually without this bot by typing in the Power/Furnace levels yourself! However, if you set up this bot, all of that manual data entry is automated for you.)*
+
 - **Auto-Syncing**: Runs every 20 minutes to fetch the latest player data for everyone on your sheet.
 - **Auto-Transfer Status**: If a player's state updates to your target state, their status is automatically changed to "Transferred".
 - **Dynamic Dashboard**: Calculates total invites, approved invites, and alliance limits automatically on the spreadsheet.
