@@ -35,7 +35,10 @@ class TransferManager(commands.Cog):
         self.sync_task.cancel()
         
     def _get_sheet_id(self):
-        return os.getenv("SHEET_ID")
+        sheet_id = os.getenv("SHEET_ID")
+        if sheet_id and "spreadsheets/d/" in sheet_id:
+            sheet_id = sheet_id.split("spreadsheets/d/")[1].split("/")[0]
+        return sheet_id
 
     @tasks.loop(minutes=20)
     async def sync_task(self):

@@ -16,6 +16,10 @@ def main():
     admin_id = input("Enter your Discord User ID (for admin DMs): ").strip()
     sheet_id = input("Enter your Google Sheet ID (from the URL): ").strip()
     
+    # Extract ID if URL was provided
+    if "spreadsheets/d/" in sheet_id:
+        sheet_id = sheet_id.split("spreadsheets/d/")[1].split("/")[0]
+        
     with open(".env", "w") as f:
         f.write(f"DISCORD_TOKEN={discord_token}\n")
         f.write(f"ADMIN_ID={admin_id}\n")
@@ -25,10 +29,6 @@ def main():
     print("\n[2] Target State")
     target_state = input("Enter your Target State number (e.g. 3693): ").strip()
     
-    # Extract ID if URL was provided
-    if "spreadsheets/d/" in sheet_id:
-        sheet_id = sheet_id.split("spreadsheets/d/")[1].split("/")[0]
-
     config = {
         "target_state": target_state
     }
