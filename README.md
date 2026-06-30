@@ -27,14 +27,19 @@ You only need three things to get started:
 * Go to the **Bot** tab -> Click **Reset Token** to get your password.
 * *Important:* Scroll down and check the box for **Message Content Intent**.
 
-**2. A Google credentials.json file**
+**2. Your Discord User ID (Optional)**
+* In Discord, go to **User Settings -> Advanced** and turn on **Developer Mode**.
+* Right-click your own profile picture in any chat and select **Copy User ID**.
+* *(This is a long number like `123456789012345678`. The bot uses this to DM you sync logs!)*
+
+**3. A Google credentials.json file**
 * Go to [Google Cloud Console](https://console.cloud.google.com/) and create a project.
 * Search for **Google Sheets API** at the top and click **Enable**.
 * Go to **IAM & Admin -> Service Accounts** and create one.
 * Click on your new service account -> **Keys** tab -> **Add Key** -> **JSON**. 
 * Put the downloaded file in the bot's folder and name it `credentials.json`.
 
-**3. The Google Sheet Template**
+**4. The Google Sheet Template**
 * Click this link: **[Transfer Sheet Template](https://docs.google.com/spreadsheets/d/1iD502n5EAqDNAtN_9PNtMpTkOxDann0Uf65n_1RGmPQ/edit?usp=sharing)**
 * Go to **File -> Make a Copy** to save it to your own Google Drive.
 * Open your `credentials.json`, copy the `client_email` address, and **Share** your copied Google Sheet with that email as an Editor.
