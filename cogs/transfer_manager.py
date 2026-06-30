@@ -18,10 +18,8 @@ class TransferManager(commands.Cog):
         try:
             with open('config.json', 'r') as f:
                 config = json.load(f)
-                self.alliance_order = config.get('alliances', [])
                 self.target_state = config.get('target_state', '3693')
         except FileNotFoundError:
-            self.alliance_order = []
             self.target_state = '3693'
             
         admin_id_str = os.getenv("ADMIN_ID")
@@ -122,18 +120,14 @@ class TransferManager(commands.Cog):
 
             def sort_key(row):
                 # row[0] is UID, row[2] is Power, row[3] is Furnace, row[9] is Invited By (Alliance)
-                alliance = row[9].strip().upper() if len(row) > 9 else ""
-                try:
-                    alliance_rank = self.alliance_order.index(alliance)
-                except ValueError:
-                    alliance_rank = 999
+                # Sort alphabetically by alliance, pushing empty alliances to the end (using "~" which is a high ASCII value)
+                alliance = row[9].strip().upper() if len(row) > 9 and row[9].strip() else "~"
                     
                 furnace_val = parse_furnace(row[3]) if len(row) > 3 else 0
                 power_val = parse_power(row[2]) if len(row) > 2 else 0
                 
-                # We sort alliance by custom rank, and furnace and power DESCENDING
-                # So we negate furnace_val and power_val for the sort key
-                return (alliance_rank, -furnace_val, -power_val)
+                # We sort alliance alphabetically (A-Z), and furnace and power DESCENDING (-val)
+                return (alliance, -furnace_val, -power_val)
                 
             valid_rows.sort(key=sort_key)
             

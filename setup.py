@@ -22,26 +22,15 @@ def main():
         f.write(f"SHEET_ID={sheet_id}\n")
     print("Saved to .env!")
 
-    print("\n[2] Alliance Setup")
-    target_state = input("Enter your State Number (e.g., 3693): ").strip()
+    print("\n[2] Target State")
+    target_state = input("Enter your Target State number (e.g. 3693): ").strip()
     
-    print("\nEnter your Alliances separated by commas (e.g., WAR, EVL, RAW).")
-    print("Note: We recommend adding 'SELF REQ' at the end for individual applications.")
-    alliances_input = input("Alliances: ").strip()
-    alliances = [a.strip() for a in alliances_input.split(",") if a.strip()]
-    
-    limits = {}
-    print("\nEnter the transfer limits for each alliance (type '-' for unlimited):")
-    for alliance in alliances:
-        limit = input(f"Limit for {alliance}: ").strip()
-        if not limit:
-            limit = "-"
-        limits[alliance] = limit
-        
+    # Extract ID if URL was provided
+    if "spreadsheets/d/" in sheet_id:
+        sheet_id = sheet_id.split("spreadsheets/d/")[1].split("/")[0]
+
     config = {
-        "target_state": target_state,
-        "alliances": alliances,
-        "limits": limits
+        "target_state": target_state
     }
     
     with open("config.json", "w") as f:
