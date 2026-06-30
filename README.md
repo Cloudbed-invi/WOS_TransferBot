@@ -66,6 +66,15 @@ Now that you have your prerequisites, setting up the bot is incredibly easy!
 
 ## 3. Running the Bot
 
-To start the bot, just double-click **`2_Run_Bot.bat`**.
+To start the bot, just double-click **`2_Run_Bot.bat`**. 
+
+> [!WARNING]
+> **Keep the window open!** The black command prompt window that appears is the brain of your bot. If you close this window, the bot will go offline and stop syncing.
 
 That's it! The bot is now online and monitoring your sheet.
+
+## Important Notes on Discord DMs
+If you provided your **Discord User ID** during setup to receive sync logs, please note:
+1. You **must** invite the bot to a Discord Server that you are in.
+2. You must ensure your privacy settings allow Direct Messages from server members. 
+*(If you skip this, the bot won't be able to send you the error logs!)*
