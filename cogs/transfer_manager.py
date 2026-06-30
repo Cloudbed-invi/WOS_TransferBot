@@ -23,7 +23,7 @@ class TransferManager(commands.Cog):
             self.target_state = '3693'
             
         admin_id_str = os.getenv("ADMIN_ID")
-        self.admin_id = int(admin_id_str) if admin_id_str else None
+        self.admin_id = int(admin_id_str) if admin_id_str and admin_id_str.isdigit() else None
             
         self.scopes = [
             'https://www.googleapis.com/auth/spreadsheets',
