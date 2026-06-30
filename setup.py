@@ -11,7 +11,7 @@ def main():
         print("Please download your Google Service Account key, rename it to 'credentials.json', and place it in this folder.")
         input("Press Enter once you have placed the file in the folder...")
     
-    print("\n[1] Discord & Google Sheets Setup")
+    print("\n[1] Discord Setup")
     discord_token = input("Enter your Discord Bot Token: ").strip()
     admin_id = input("Enter your Discord User ID (for admin DMs): ").strip()
     sheet_id = input("Enter your Google Sheet ID (from the URL): ").strip()
@@ -48,15 +48,6 @@ def main():
         json.dump(config, f, indent=4)
         
     print("\nSaved to config.json!")
-    
-    print("\n[3] Building Google Sheet...")
-    try:
-        import setup_sheet
-        setup_sheet.main()
-    except Exception as e:
-        print(f"\nFailed to format the Google Sheet automatically: {e}")
-        print("Please make sure your credentials.json is in the folder and the email has Editor access.")
-        
     print("\n========================================")
     print("Setup Complete! You can now double-click:")
     print("2_Run_Bot.bat (To start the Discord bot)")

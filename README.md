@@ -4,11 +4,15 @@ A standalone, open-source Discord bot designed to automate and manage State Tran
 
 This bot connects to the official game API to fetch player data (Power, Furnace, State, Alliance) and synchronizes it automatically with a Google Sheet Dashboard. 
 
-## Features
+## What the Bot Does
 - **Auto-Syncing**: Runs every 20 minutes to fetch the latest player data for everyone on your sheet.
 - **Auto-Transfer Status**: If a player's state updates to your target state, their status is automatically changed to "Transferred".
-- **Dynamic Dashboard**: Automatically formats your Google Sheet with a clean, color-coded dashboard tracking total invites, approved invites, and limits for each alliance.
-- **Discord Integration**: Slash commands like `/sort_transfers` and `/sync_transfer_manager` allow admins to manage the sheet directly from Discord.
+- **Dynamic Dashboard**: Calculates total invites, approved invites, and alliance limits automatically on the spreadsheet.
+- **Discord Integration**: Slash commands allow admins to sort and force-sync the sheet directly from Discord.
+
+## Bot Commands
+- `/sync_transfer_manager`: Forces an immediate data fetch from the game API to update all players. (Sends a DM to the bot owner with the log).
+- `/sort_transfers`: Sorts the entire sheet. It groups players by Alliance first (using the order you specified during setup), then sorts them by highest Furnace Level, then highest Power!
 
 ---
 
@@ -28,10 +32,11 @@ You only need three things to get started:
 * Click on your new service account -> **Keys** tab -> **Add Key** -> **JSON**. 
 * Put the downloaded file in the bot's folder and name it `credentials.json`.
 
-**3. A blank Google Sheet**
-* Create a blank Google Sheet.
-* Open `credentials.json`, copy the `client_email` address, and **Share** your Google Sheet with that email as an Editor.
-* Copy the link to your Google Sheet!
+**3. The Google Sheet Template**
+* Click this link: **[Transfer Sheet Template](https://docs.google.com/spreadsheets/d/1iD502n5EAqDNAtN_9PNtMpTkOxDann0Uf65n_1RGmPQ/edit?usp=sharing)**
+* Go to **File -> Make a Copy** to save it to your own Google Drive.
+* Open your `credentials.json`, copy the `client_email` address, and **Share** your copied Google Sheet with that email as an Editor.
+* Copy the link to your new Google Sheet!
 
 ---
 
@@ -43,13 +48,11 @@ Now that you have your prerequisites, setting up the bot is incredibly easy!
 2. Double-click the **`1_Install_and_Setup.bat`** file in the folder.
 3. Follow the prompts on the black screen. It will ask for your Discord Token, Sheet URL, Target State, and Alliance Limits.
 
-Once you answer the questions, the setup script will instantly configure your Blank Google Sheet with all the colors, dropdowns, and dashboards!
-
 ### How the Sheet Works
-- **ID**: Paste player IDs in column B. The bot will use these to fetch data.
-- **Autofilled Columns**: The bot will automatically populate **Nickname**, **Power**, **Furnace**, **State**, and **Alliance**. Do not edit these manually.
-- **Type of Invite**: Choose Ordinary or Special from the dropdown. This is used to track your state's Special Invite quota.
-- **Invited By**: Choose the alliance that is taking this player.
+- **ID**: Paste player IDs in column B (Transfer Data tab). The bot will use these to fetch data.
+- **Autofilled Columns**: The bot will automatically populate **Name**, **Power**, **Furnace**, **State**, and **Alliance**. Do not edit these manually.
+- **Type of Invite**: Choose Ordinary or Special from the dropdown. This tracks your state's Special Invite quota.
+- **Joining Alliance**: Choose the alliance that is taking this player.
 - **Status**: The current status of the transfer. If you set it to "Invite Sent", and the bot detects the player has arrived in your state, it will automatically change to "Transferred"!
 
 ---
@@ -58,6 +61,4 @@ Once you answer the questions, the setup script will instantly configure your Bl
 
 To start the bot, just double-click **`2_Run_Bot.bat`**.
 
-That's it! The bot is now online. In Discord, you can use:
-- `/sync_transfer_manager`: Forces an immediate fetch to update all players.
-- `/sort_transfers`: Sorts the entire sheet by Alliance -> Furnace -> Power.
+That's it! The bot is now online and monitoring your sheet.
