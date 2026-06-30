@@ -259,7 +259,17 @@ class LoginHandler:
                         self._record_api_request(api_num)
 
                         if response.status == 200:
-                            data = await response.json()
+                            try:
+                                data = await response.json()
+                            except Exception as e:
+                                logger.error(f"Failed to parse JSON from API: {e}")
+                                # Try to get text to see what was returned
+                                try:
+                                    text_resp = await response.text()
+                                    logger.error(f"API Response text: {text_resp[:200]}")
+                                except:
+                                    pass
+                                data = {}
 
                             if data.get('data'):
                                 return {
