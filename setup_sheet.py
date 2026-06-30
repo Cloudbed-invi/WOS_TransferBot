@@ -78,8 +78,8 @@ def main():
         # State validation
         rule_state = {
             "condition": {
-                "type": "NUMBER_GREATER_THAN",
-                "values": [{"userEnteredValue": "1"}]
+                "type": "NUMBER_GREATER",
+                "values": [{"userEnteredValue": "0"}]
             },
             "showCustomUi": True
         }
