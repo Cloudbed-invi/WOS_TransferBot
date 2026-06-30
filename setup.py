@@ -6,6 +6,11 @@ def main():
     print("  WOS Transfer Bot - Initial Setup")
     print("========================================")
     
+    while not os.path.exists("credentials.json"):
+        print("\n[!] ERROR: credentials.json not found in this folder!")
+        print("Please download your Google Service Account key, rename it to 'credentials.json', and place it in this folder.")
+        input("Press Enter once you have placed the file in the folder...")
+    
     print("\n[1] Discord & Google Sheets Setup")
     discord_token = input("Enter your Discord Bot Token: ").strip()
     admin_id = input("Enter your Discord User ID (for admin DMs): ").strip()
